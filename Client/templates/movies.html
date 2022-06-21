@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content%}
+
+    <div class="all_cards"  >
+        <div class="card">
+            {% if m["cover"]%}
+            <img class="image" src={{m["cover"]}}>
+            {% else %}
+            <img class="image" src="static/poster.png">
+            {% endif %}
+        </div>
+
+        <div class="card-body" >
+            
+            <h1 class="title">{{m["title"]}} ({{m["year"]}})</h1>
+            <h3 class="title">Genres</h3>
+            <p class="genres">{{m["genres"][0]}} {{m["genres"][1]}} {{m["genres"][2]}}</p>
+            <h3 class="title">Staring</h3>
+            <p class="genres">{{m["cast"][0]}} ,{{m["cast"][1]}} ,{{m["cast"][2]}}</p>
+            
+            <h3 class="title">Summary</h3>
+            <p class="plot">{{m["plot"][0].split("::")[0]}}</p>
+            <h3 class="title">Verdict</h3>
+            <p class="plot">Based on the the reviews out algorithm predits that this movie is {{value}}</p>
+
+            <a href=https://www.imdb.com/title/tt{{m["movieID"]}} class="card-link">
+                <img class="imdb" src="static/imdb.jpg" width="40" height="26">
+            </a>
+
+        </div>
+    </div>
+
+
+
+{% endblock %}
